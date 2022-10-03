@@ -1,0 +1,50 @@
+program FtpServer;
+
+#include FTPServer.iri
+
+procedure StartServer;
+sCode : SysCode;
+begin
+    sCode := StartFTPServer;
+    if (sCode = SysOk) then
+        DisplayStatus("Server activo");
+        SetTimerMode(1, TimerContinuous);
+        SetTimer(1, 300);
+        StartTimer(1);
+    else
+        DisplayStatus(SysCodeToString(sCode));
+    end if;    
+end;
+
+
+--BDEspecies -> Insert completo
+-- 1 linea define la accion
+-- Borrar la tabla
+-- Reinsetar todo
+
+--BDESpeciesX -> Agregar a lo que existe
+-- Inserto 
+
+
+
+handler Timer1Trip;
+sCode : SysCode;
+lineaText : string;
+begin
+    sCode := FileExists("hola.txt", FTP);
+    if (sCode = SysOk) then
+        FileOpen("hola.txt", FTP, FileRead);
+        sCode := ReadLn(lineaText);
+        SetLabelText(lbl2, lineaText);
+        sCode := ReadLn(lineaText);
+        SetLabelText(lbl4, lineaText);
+        FileClose;
+        FileDelete("hola.txt", FTP);
+    else
+        DisplayStatus(SysCodeToString(sCode));
+    end if;   
+end;
+
+begin
+    StartServer;
+end Ftpserver;
