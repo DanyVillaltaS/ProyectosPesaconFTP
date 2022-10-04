@@ -1,0 +1,72 @@
+function FormatString (valor : string;longitud : integer):string;
+begin
+    return Left$(valor + Space$(100), longitud);
+end;
+
+procedure pValidaValorDeLinea (valor : string);
+NombreLinea:string;
+
+begin
+    if (Left$(valor, 3)="Uso") then
+        g_uso:=Right$(valor, Len(valor)-4);
+        --return g_uso;
+    elsif (Left$(valor, 7)="Especie") then
+        g_especie:=Right$(valor, Len(valor)-8);
+        --return g_especie;
+    elsif (Left$(valor, 11)="Embarcacion") then
+        g_embarcacion:=Right$(valor, Len(valor)-12);
+        --return g_embarcacion;
+    elsif (Left$(valor, 14)="TipoTransporte") then
+        g_tipotransporte:=Right$(valor, Len(valor)-15);
+        --return g_tipotransporte;
+    elsif (Left$(valor, 9)="Operacion") then
+        g_operacion:=Right$(valor, Len(valor)-10);
+        --return g_operacion;
+    elsif (Left$(valor, 5)="Fecha") then
+        g_fecha:=Right$(valor, Len(valor)-6);
+        --return g_fecha;
+    end if;
+	    
+	--return NombreLinea;
+end;
+
+
+procedure pPasarDatosAEtiquetas;
+begin
+    SetLabelText(lbl11, g_uso);
+    SetLabelText(lbl13, g_especie);
+    SetLabelText(lbl16, g_tipotransporte);
+    SetLabelText(lbl17, g_embarcacion);
+    SetLabelText(lbl20, g_operacion);
+    SetLabelText(lbl23, g_fecha);
+    SetLabelText(lbl24, g_lineaText07);
+
+	--SetLabelText(lbl11, g_uso);
+    --SetLabelText(lbl13, g_especie);
+    --SetLabelText(lbl16, g_tipotransporte);
+    --SetLabelText(lbl17, g_embarcacion);
+    
+end;
+
+procedure pLimpiarEtiquetas;
+begin
+	SetLabelText(lbl11, "");
+    SetLabelText(lbl13, "");
+    SetLabelText(lbl16, "");
+    SetLabelText(lbl17, "");
+    SetLabelText(lbl20, "");
+    SetLabelText(lbl23, "");
+    SetLabelText(lbl24, "");
+    
+end;
+
+procedure pPintarEtiquetas;
+begin
+	SetLabelText(lbl11, g_lineaText01);
+    SetLabelText(lbl13, g_lineaText02);
+    SetLabelText(lbl16, g_lineaText03);
+    SetLabelText(lbl17, g_lineaText04);
+    SetLabelText(lbl20, g_lineaText05);
+    SetLabelText(lbl23, g_lineaText06);
+    SetLabelText(lbl24, g_lineaText07);
+end;

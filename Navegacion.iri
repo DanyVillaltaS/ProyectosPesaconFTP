@@ -1,0 +1,4 @@
+elsif EventWidget=lbl5 then             --ir a Pantalla Lista de Reportes Pendientes
+    pPasarDatosAEtiquetas;    
+elsif EventWidget=lbl18 then             --ir a Pantalla Lista de Reportes Pendientes
+    pLimpiarEtiquetas;    

@@ -1,0 +1,16 @@
+g_lineaText01:string; 
+g_lineaText02:string; 
+g_lineaText03:string; 
+g_lineaText04:string;
+g_lineaText05:string; 
+g_lineaText06:string; 
+g_lineaText07:string;
+g_lineaText08:string; 
+g_lineaText09:string;
+
+g_especie:string; 
+g_uso:string:="Harina"; 
+g_tipotransporte:string; 
+g_embarcacion:string;
+g_operacion:string;
+g_fecha:string;

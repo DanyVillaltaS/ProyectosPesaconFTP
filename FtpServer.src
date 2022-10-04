@@ -1,6 +1,19 @@
 program FtpServer;
 
 #include FTPServer.iri
+#include Variables.iri
+#include Funciones.iri
+
+
+
+handler widgetClicked;
+begin
+	if 1 = 0 then
+		return;
+	#include Navegacion.iri
+	end if;
+end;
+
 
 procedure StartServer;
 sCode : SysCode;
@@ -30,21 +43,63 @@ end;
 handler Timer1Trip;
 sCode : SysCode;
 lineaText : string;
+
 begin
-    sCode := FileExists("hola.txt", FTP);
+    sCode := FileExists("Ordenes.txt", FTP);
     if (sCode = SysOk) then
-        FileOpen("hola.txt", FTP, FileRead);
+        FileOpen("Ordenes.txt", FTP, FileRead);
         sCode := ReadLn(lineaText);
         SetLabelText(lbl2, lineaText);
+        --pValidaValorDeLinea(lineaText);
+        g_lineaText01:=lineaText;
+        
         sCode := ReadLn(lineaText);
         SetLabelText(lbl4, lineaText);
+        --pValidaValorDeLinea(lineaText);
+        g_lineaText02:=lineaText;
+        
+        sCode := ReadLn(lineaText);
+        SetLabelText(lbl8, lineaText);
+        --pValidaValorDeLinea(lineaText);
+        g_lineaText03:=lineaText;
+        
+        sCode := ReadLn(lineaText);
+        SetLabelText(lbl9, lineaText);
+        --pValidaValorDeLinea(lineaText);
+        g_lineaText04:=lineaText;
+        
+        sCode := ReadLn(lineaText);
+        SetLabelText(lbl26, lineaText);
+        --pValidaValorDeLinea(lineaText);
+        g_lineaText05:=lineaText;
+        
+        sCode := ReadLn(lineaText);
+        --pValidaValorDeLinea(lineaText);
+        g_lineaText06:=lineaText;
+        sCode := ReadLn(lineaText);
+        --pValidaValorDeLinea(lineaText);
+        g_lineaText07:=lineaText;
+
         FileClose;
-        FileDelete("hola.txt", FTP);
+        FileDelete("Ordenes.txt", FTP);
+        
     else
         DisplayStatus(SysCodeToString(sCode));
-    end if;   
+    end if;
+pValidaValorDeLinea(g_lineaText01);
+pValidaValorDeLinea(g_lineaText02);
+pValidaValorDeLinea(g_lineaText03);
+pValidaValorDeLinea(g_lineaText04);
+pValidaValorDeLinea(g_lineaText05);
+pValidaValorDeLinea(g_lineaText06);
+pValidaValorDeLinea(g_lineaText07);
+pValidaValorDeLinea(g_lineaText08);
+pValidaValorDeLinea(g_lineaText09);
+
+pPasarDatosAEtiquetas;
 end;
 
 begin
     StartServer;
+    
 end Ftpserver;
