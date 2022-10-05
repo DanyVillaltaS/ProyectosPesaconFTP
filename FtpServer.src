@@ -11,6 +11,7 @@ begin
 	if 1 = 0 then
 		return;
 	#include Navegacion.iri
+    #include Operaciones.iri
 	end if;
 end;
 
@@ -69,7 +70,7 @@ begin
         g_lineaText04:=lineaText;
         
         sCode := ReadLn(lineaText);
-        SetLabelText(lbl26, lineaText);
+        --SetLabelText(lbl26, lineaText);
         --pValidaValorDeLinea(lineaText);
         g_lineaText05:=lineaText;
         

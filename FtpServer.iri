@@ -59,7 +59,6 @@ lbl22     : constant integer := 22;
 lbl23     : constant integer := 23;
 lbl24     : constant integer := 24;
 lbl25     : constant integer := 25;
-lbl26     : constant integer := 26;
 
 USBPRN    : constant string := "USBPRN";
 ADVPRN    : constant string := "ADVPRN";

@@ -70,3 +70,25 @@ begin
     SetLabelText(lbl23, g_lineaText06);
     SetLabelText(lbl24, g_lineaText07);
 end;
+
+procedure pCrearArchivoTxt;
+l_NombreArchivo: string;
+begin
+    l_NombreArchivo:="ArchivoCreado1280.txt";
+
+ if (FileExists(l_NombreArchivo,FTP)=SysOk) then
+    FileDelete(l_NombreArchivo,FTP);
+    FileClose;
+ end if;
+
+FileOpen(l_NombreArchivo,FTP,FileCreate);
+--FileWrite("Fecha y Hora:"+ DTToString(Datetime));
+FileWrite("Operacion:"+ g_operacion);
+FileWrite("Especie:"+ g_especie);
+FileWrite("Uso:"+ g_uso);
+FileWrite("TipoTransporte:"+ g_tipotransporte);
+FileWrite("Embarcacion:"+ g_embarcacion);
+
+FileClose;
+
+end;
